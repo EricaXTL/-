@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+    
+
+    <script>
+        
+        let total = null;
+ function sum(){
+      for(let i = 0;i<arguments.length;i++){
+        
+          /*  if (typeof arguments[i]=="number" && !isNaN(arguments[i])){
+                total+=Number(arguments[i]);
+            } */
+            let item = arguments[i];
+            //字符串转数组
+            item = parseFloat(item);
+            //判断item是否为数字
+            !isNaN(item) ? total += item : null;
+            a = total;
+      }
+        return total;
+    
+
+ }
+ 
+console.log(sum(12,24,'36','aa'));
+
+    
+    </script>
+</body>
+</html>
