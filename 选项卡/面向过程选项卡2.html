@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+ul{
+    list-style: none;
+}
+
+
+.tabBox{
+    margin: 20px auto;
+    width: 500px;
+}
+
+.tabBox.ul{
+  position: relative;
+  top: 1px;
+  overflow: hidden;
+  
+}
+
+.tabBox ul:after {
+    display: block ;
+    content: '';
+    clear:both;
+
+} 
+
+
+.tabBox ul li {
+
+
+float: left;
+margin-right: 10px;
+padding: 0 10px;
+height:35px;
+line-height:35px;
+border: 1px solid #999999;
+background: #cccccc;
+cursor: pointer;
+
+}
+
+.tabBox ul li.select{
+
+background: #ffffff;
+border-bottom-color: #ffffff;
+position: relative;
+top:1px; 
+}
+
+
+.tabBox div {
+    display: none;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    border: 1px solid #999
+   
+
+}
+
+
+
+.tabBox div.select2{
+  display:block;
+  
+}
+
+
+</style>
+
+
+</head>
+<body>
+<div class="tabBox" id="tabBox">
+    
+    <ul>
+       
+        <li class="select">新闻</li>
+        <li>电影</li>
+        <li>音乐</li>
+        
+    </ul>
+
+    <div class="select2">巴拉巴拉巴拉</div>
+    <div>碟中谍6</div>
+    <div>音乐</div>
+
+</div>
+
+    <script>
+
+    var tabBox  = document.getElementById('tabBox');
+    var Lis = tabBox.getElementsByTagName('li');
+    var divs= tabBox.getElementsByTagName('div');
+    console.log(divs)
+
+    
+    // function change(a){
+    //     //index形参
+    //     for(var i=0;i<tabList.length;i++){
+    //         tabList[i].className='';
+    //         divList=[i].className='';
+    //     }
+       
+    //     tabList[a].className='select';
+    //     divList[a].className='select2';
+    // }
+    //      for(var j=0;j<tabList.length;j++){
+
+    //          tabList[j].index= j
+
+    //          tabList[j].onclick=function(){
+    //              change(this.index)
+    //          }
+    //      }
+
+     
+    //[b1,b2,b3].onclick = function(){}
+    //b1.onclick
+
+    for(var i=0;i<Lis.length;i++){//0,1,2
+        // debugger
+        Lis[i].index = i;
+        Lis[i].onclick = function(){
+            //把所有的class清空
+            for(var j=0;j<Lis.length;j++){
+                Lis[j].className = '';
+                divs[j].className ='';
+            }
+            //把当前点击的class加上active
+            this.className = 'select';
+            divs[this.index].className = 'select2';
+            // alert(this.index);
+        }
+    }
+
+    
+    </script>
+    
+</body>
+
+</html>
