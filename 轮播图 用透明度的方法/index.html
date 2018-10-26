@@ -1,0 +1,64 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>改变透明度算法(经典)</title>
+<style media="screen">
+* {
+margin: 0;
+padding: 0;
+}
+.wrap {
+width: 60%;
+margin: auto;
+position: relative;
+}
+.wrap img {
+width: 100%;
+position: absolute;
+left: 0;
+top: 0;
+transition: 2s;
+}
+.wrap img:nth-child(1) {
+position: relative;
+}
+.wrap .follow {
+width: 150px;
+height: 30px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+}
+.wrap .follow span {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+border: 3px solid gray;
+}
+.wrap .follow span:hover {
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<img src="img/01.jpg" alt="" />
+<img src="img/02.jpg" alt="" />
+<img src="img/03.jpg" alt="" />
+<img src="img/04.jpg" alt="" />
+<input id="leftBut" type="button" name="name" value="◀︎">
+<input id="rightBut" type="button" name="name" value="▶︎">
+<div class="follow">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</body>
+<script type="text/javascript" src='./1.js'></script>
+    
+</body>
+</html>
