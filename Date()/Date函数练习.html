@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p id='p'></p>
+    <script>
+    
+    let arr = ['周日','周一','周二','周三','周四','周五','周六'];
+
+
+    console.log(['周日','周一','周二','周三','周四','周五','周六'][new Date().getDay()])
+    
+
+    function fn(){
+        let t = new Date();
+        let y = t.getFullYear();
+        let m = tDou(t.getMonth()+1);
+        let d = tDou(t.getDate());
+        let h = tDou(t.getHours());
+        let mi = tDou(t.getMinutes());
+        let se = tDou(t.getSeconds());
+
+        p.innerHTML = y + '年' + m + '月' + d + '日----' + arr[t.getDay()]+'----'  + h +'点'+ mi +'分'+ se +'秒';
+    }
+    fn(); //上来直接执行，第一下不会闪
+    setInterval(fn,1000);
+
+
+    /*
+        小于10补0
+    */
+    function tDou(n){
+        return n<10?'0'+n:''+n;
+    }
+   
+
+
+
+    // console.log(t.getFullYear());
+
+    // console.log(t.getMonth() + 1);
+
+    //  console.log(t.getDate());
+
+    // console.log( t.getDay() );
+
+    // console.log(t.getHours());
+
+    // console.log(t.getMinutes());
+
+    // console.log(t.getSeconds());
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>
