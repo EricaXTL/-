@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="b1">Start</button>
+    <button id="b2">Stop</button>
+    <button id="b3">Call a friend for help!</button>
+    <p id="p"></p>
+    <p id="p1"></p>
+<script>
+    let arr = [
+        'name1',
+        'name2',
+        'name3',
+        'name4',
+        'name5',
+        'name6',
+        'name7'
+    ];
+    let obj={
+
+         arr1:['name1',1,2,3,4,5],
+         arr2:['name2',6,7,8,9,10],
+         arr3:['name3',11,12,13,14,15],
+         arr4:['name4',16,17,18,19,20],
+         arr5:['name5',21,22,23,24,25],
+         arr6:['name6',26,27,28,29,30],
+         arr7:['name7',31,32,33,34,35]
+
+
+
+    }
+    
+
+   /*  let timer = null,num = 0,n=0;
+    b1.onclick = function(){
+        timer!== null && clearInterval(timer)
+        timer = setInterval(function(){
+            p.innerHTML = arr[num];
+            num ++;
+            n++;
+            num %= arr.length;
+            if(n == 100){
+                clearInterval(timer);
+                p.innerHTML = arr[5];
+            }
+        },60);
+    }
+    
+    b2.onclick = function(){
+        clearInterval(timer);
+        p.innerHTML = arr[5];
+    }
+ */
+ let timer = null,timer2 = null,num = 0,n=0;
+    b1.onclick = function(){
+        timer!== null && clearInterval(timer)
+        timer = setInterval(function(){
+
+            num = Math.floor(Math.random(num)*arr.length);
+            console.log(num);
+
+            p.innerHTML = arr[num];
+
+        
+           
+        },60);
+    }
+    
+    b2.onclick = function(){
+        clearInterval(timer);
+        clearInterval(timer2);
+        
+    }
+
+    b3.onclick = function(){
+
+        timer2!== null && clearInterval(timer2);
+        timer2 = setInterval(function(){
+
+            for(el in obj){
+            if(obj[el].indexOf(p.innerHTML)!=-1){   
+                    
+                num = Math.floor(Math.random(num)*obj[el].length)
+                    if(obj[el][num]!=p.innerHTML){
+                      p1.innerHTML =obj[el][num];
+                    }
+            
+                
+            }
+        }
+    },60);
+}
+
+
+
+</script>
+</body>
+</html>
