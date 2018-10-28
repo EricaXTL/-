@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <p>页面上显示时钟：</p>
+        <p id="demo"></p>
+        <button id='myStopFunction'>停止时钟</button>
+        <button onclick="mvToLft()">开始时钟</button>
+        <script>
+        /* function mvToLft(){
+            var myVar=setInterval(function(){myTimer()},1000);
+
+            document.getElementById('myStopFunction').onclick = function(){
+                clearInterval(myVar);
+                console.log(1);
+            };
+        }
+           console.dir(mvToLft);
+            //console.log(mvToLft());    
+        function myTimer(){
+            console.log(0);
+            var d=new Date();
+            var t=d.toLocaleTimeString();
+            document.getElementById("demo").innerHTML=t;
+        } */
+
+        /*
+        建议 看一下 函数 闭包 和 setInterval (返回的是 数字id),
+              多次执行 开始 setInterval 会多次调用， 
+              造成 myVar 只保留最后一次 setInterval 返回的id,  
+              最终造成调用clear函数，只清楚除最后一次。
+              然而还有其他执行的 setInterval 队列。
+              多次点击开始时钟后，就往队列里面放入了多个定时任务，
+         一次点击停止时钟，对应一个任务，其他回调还是会在满足时间间隔后继续执行
+        
+        */
+        </script>
+    <script>
+
+          var myVar = null
+        function mvToLft(){
+            myVar !== null && clearInterval(myVar)
+            myVar = setInterval(function(){myTimer()},1000);
+            document.getElementById('myStopFunction').onclick = function(){
+                clearInterval(myVar);
+            };
+        }
+       
+        function myTimer(){
+            console.log(0);
+            var d=new Date();
+            var t=d.toLocaleTimeString();
+            document.getElementById("demo").innerHTML=t;
+        } 
+
+
+    
+    </script>
+    
+</body>
+</html>
