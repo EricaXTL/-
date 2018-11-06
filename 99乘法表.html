@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+
+}
+ul{
+    list-style: none;
+}
+
+</style>
+
+</head>
+<body id="body">
+
+    <script>
+    
+    /* */
+   // var a = '';
+    let a = body.innerHTML='';//???
+    
+     // 
+    
+    
+ 
+        
+        for (i=1; i<=9;i++) {    
+            
+            for(j=1;j<=i;j++){    
+
+            
+               
+                 if (i>j) {    
+                   a +=j+'*'+i+'='+j*i+' ';    
+                 }else{    
+                   a +=i+'*'+j+'='+j*i+' ';    
+        }  
+        
+    }          
+      
+           a+='\n'; 
+             
+             
+           
+
+}    
+        body.innerHTML =`<div>${a}<div>`
+             
+           alert(a);    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    </script>
+    
+</body>
+</html>
