@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //解析URL
+
+function queryParameter(url){
+    let obj={};
+    url.indexof("#")>0?url=url.replace(/#/g,"&HASH="):null;
+    let ary=url.split(/\?/g)[1].split(/=|&/g);
+    ary.forEach((item,index)=>{
+        if(index%2===1) return;
+        obj[item]=ary[index+1];
+    })
+    ary=null;
+    return obj;
+};
+queryParameter();
+   
+    
+    
+    
+    
+    </script>
+</body>
+</html>
