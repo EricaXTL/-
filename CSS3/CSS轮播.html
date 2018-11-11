@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+
+#container {
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+}
+ 
+#photo {
+	width: 1200px;
+	animation: switch 5s ease-out infinite;
+}
+ 
+#photo > img {
+	float: left;
+	width: 400px;
+	height: 300px;
+}
+ 
+@keyframes switch {
+	0%, 25% {
+		margin-left: 0;
+	}
+	35%, 60% {
+		margin-left: -400px;
+	}
+	70%, 100% {
+		margin-left: -800px;
+	}
+}
+
+
+
+
+
+
+</style>
+<div id="container">
+        <div id="photo">
+            <img src="./img/1.jpg" />
+            <img src="./img/2.jpg" />
+			<img src="./img/3.JPG" />
+			<img src="./img/4.JPG" />
+        </div>
+    </div>
+<body>
+    <script>
+    
+    
+    
+    
+    </script>
+    
+</body>
+</html>
