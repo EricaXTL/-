@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+        #box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+
+        button {
+            margin-top: 100px;
+            position: relative;
+            background-color: aliceblue
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="./rainbowcat.jpg" alt="100px" id='box'>
+    <button id='replay'>replay</button>
+    <script>
+        let obj = document.getElementById('box');
+        let disX = disY = 0;
+        let onoff = false;
+        let position = [{ x: obj.offsetLeft, y: obj.offsetTop }];
+        let replay = document.getElementById('replay');
+
+
+        obj.onmousedown = function (ele) {
+            disX = ele.pageX - obj.offsetLeft;
+            disY = ele.pageY - obj.offsetTop;
+            console.log(disX);
+            onoff = true
+
+            position.push({ x: obj.offsetLeft, y: obj.offsetTop });
+            return false;
+
+        };
+        let nowX = nowY = 0
+        let maxX = maxY = 0
+
+        document.onmousemove = function (ele) {
+            if (!onoff) return;
+            let nowX = ele.clientX - disX;
+            let nowY = ele.clientY - disY;
+            let maxX = document.documentElement.clientWidth - obj.offsetWidth;
+            let maxY = document.documentElement.clientHeight - obj.offsetHeight;
+            //console.log(disY)
+
+            nowX = nowX < 0 ? 0 : nowX;//限定box活动范围
+            nowY = nowY < 0 ? 0 : nowY;
+            nowX = nowX > maxX ? maxX : nowX;
+            nowY = nowY > maxY ? maxY : nowY;
+            obj.style.marginTop = obj.style.marginLeft = 0;
+            console.log(obj.style.marginTop);
+            obj.style.left = nowX + "px";//不要忘记+“px”。仅仅有style.left/top是有“px”的
+            obj.style.top = nowY + "px";
+            position.push({ x: nowX, y: nowY });
+            return false;
+        };
+        document.onmouseup = function () {
+
+            onoff = false
+
+        };
+       replay.onclick=function(){
+        if (position.length == 1) return;
+		let timer = setInterval(function (){
+			let oPos = position.pop();
+            console.log(oPos);
+			oPos?(obj.style.left = oPos.x + "px", obj.style.top = oPos.y + "px") : clearInterval(timer);
+		}, 30);
+		return false;
+       };
+
+
+    </script>
+</body>
+
+</html>
