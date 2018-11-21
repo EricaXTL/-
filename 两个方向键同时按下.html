@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box{
+    width:100px;
+    height: 100px;
+    background: red;
+    position:absolute;
+    left:0;
+    top:0;
+   
+}
+</style>
+</head>
+
+<body>
+    <input type="text">
+    <div id="box"></div>
+    <script>
+
+
+
+        let obj = { left: false, top: false, right: false, down: false };
+
+        let num = 0;
+
+
+
+        window.onkeydown = function (ev) {
+
+
+            function moveUp() { box.style.top = box.offsetTop - 5 + 'px'; }
+            function moveDown() { box.style.top = box.offsetTop + 5 + 'px'; }
+            function moveLeft() { box.style.left = box.offsetLeft - 5 + 'px'; }
+            function moveRight() { box.style.left = box.offsetLeft + 5 + 'px'; }
+            
+
+            if (ev.keyCode == 37) {
+                //左 
+                 num -= 2
+                moveLeft();
+
+                if (obj.left == false) { obj.left = true }
+
+                else if (obj.left == true && obj.top == true) {
+                    num -= 2
+                    moveLeft();
+                    moveUp();
+                } else if (obj.left == true && obj.down == true) {
+                    num -=2
+                    moveLeft();
+                    moveDown();
+
+                }
+
+            }
+            if (ev.keyCode == 38) {
+                //上
+                num -= 2
+                moveUp();
+
+                if (obj.top == false) { obj.top = true }
+
+                else if (obj.left == true && obj.top == true) {
+                    num -= 2
+                    moveLeft();
+                    moveUp();
+                }
+                else if (obj.right == true && obj.top == true) {
+                    num -= 2
+                    moveRight();
+                    moveUp();
+
+                }
+            }
+            if (ev.keyCode == 39) {
+                //右
+                num += 2
+                moveRight();
+                
+                if (obj.right == false) { obj.right = true }
+               
+                else if (obj.top == true && obj.right == true) {
+                    num += 2
+                    moveRight();
+                    moveUp();
+
+                } else if (obj.down == true && obj.right == true) {
+                    num += 2
+                    moveRight();
+                    moveDown();
+
+                }
+
+            }
+
+            if (ev.keyCode == 40) {
+                //下
+                num += 2
+                moveDown();
+                if (obj.down == false) { obj.down = true }
+
+                else if (obj.down == true && obj.right == true) {
+                    num += 2
+                    moveRight();
+                    moveDown();
+
+                } else if (obj.down == true && obj.left == true) {
+                    num -= 2
+                    moveLeft();
+                    moveDown();
+
+                }
+
+
+            }
+
+             box.style.transform = 'rotate('+ num +'deg)'
+
+
+        }
+
+
+        window.onkeyup = function (ev) {
+            if (ev.keyCode == 37) {
+                if (obj.left == true) { obj.left = false }
+
+            }
+            if (ev.keyCode == 38) {
+                if (obj.top == true) { obj.top = false }
+
+            }
+            if (ev.keyCode == 39) {
+                if (obj.right == true) { obj.right = false }
+
+            }
+            if (ev.keyCode == 40) {
+                if (obj.down == true) { obj.down = false }
+
+            }
+        }
+
+        console.log(obj.top)
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
